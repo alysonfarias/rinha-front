@@ -46,11 +46,14 @@
   color: #e74c3c; /* Red */
 }
 
-.input-container {
-  width: 50%; /* Adjust as needed */
-  margin-right: 20px;
+.json-viewer-container {
+  display: flex;
+  height: 100vh; /* Make the container take full viewport height */
 }
 
+.input-container,
 .json-tree-container {
   width: 50%;
+  height: 100%; /* Make each section take full height of the container */
+  overflow: auto; /* Add scrollbars if content overflows */
 }
