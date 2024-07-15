@@ -1,0 +1,47 @@
+.json-tree {
+  font-family: monospace;
+  background-color: #f4f4f4; /* Light background for better readability */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.node {
+  padding: 8px 12px;
+  border-bottom: 1px solid #ddd; /* Subtle divider between nodes */
+}
+
+.node:hover {
+  background-color: #f0f0f0; /* Hover effect */
+}
+
+.node span {
+  cursor: pointer;
+}
+
+.expanded > ul {
+  display: block;
+}
+
+.collapsed > ul {
+  display: none;
+}
+
+/* Styling for object and array labels */
+.object-label,
+.array-label {
+  font-weight: bold;
+}
+
+.object-label {
+  color: #3498db; /* Blue */
+}
+
+.array-label {
+  color: #2ecc71; /* Green */
+}
+
+/* Styling for values */
+.value {
+  color: #e74c3c; /* Red */
+}
