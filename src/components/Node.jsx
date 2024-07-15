@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Node({ data, depth = 0 }) {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(false); // All nodes start collapsed
   const isObject =
     typeof data === "object" && !Array.isArray(data) && data !== null;
   const isArray = Array.isArray(data);
@@ -14,19 +14,30 @@ function Node({ data, depth = 0 }) {
 
   return (
     <div style={{ marginLeft: `${depth * 20}px` }}>
-      <span
-        onClick={toggleExpand}
-        style={{ cursor: isObject || isArray ? "pointer" : "default" }}
-      >
-        {isObject ? (expanded ? "▾ Object" : "▸ Object") : null}
-        {isArray ? (expanded ? "▾ Array" : "▸ Array") : null}
-        {!isObject && !isArray && JSON.stringify(data)}
-      </span>
+      {isObject && (
+        <span onClick={toggleExpand} style={{ cursor: "pointer" }}>
+          {expanded ? "▾ " : "▸ "}
+          Object
+        </span>
+      )}
+      {isArray && (
+        <span onClick={toggleExpand} style={{ cursor: "pointer" }}>
+          {expanded ? "▾ " : "▸ "}
+          Array
+        </span>
+      )}
+      {!isObject && !isArray && (
+        <span>
+          {typeof data === "string" ? `"${data}"` : data} {/* Quote strings */}
+        </span>
+      )}
+
       {expanded && (
         <ul style={{ listStyle: "none", padding: 0 }}>
           {isObject &&
             Object.keys(data).map((key) => (
               <li key={key}>
+                <span>{key}: </span>
                 <Node data={data[key]} depth={depth + 1} />
               </li>
             ))}

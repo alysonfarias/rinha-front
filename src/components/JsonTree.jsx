@@ -32,6 +32,9 @@ function JsonTree() {
 
   return (
     <div className="json-viewer-container">
+      <div className="json-tree-container">
+        {jsonData && <Node data={jsonData} depth={0} expandAll={expandAll} />}
+      </div>
       <div className="input-container">
         <input type="file" onChange={handleFileChange} />
         <textarea
@@ -41,9 +44,6 @@ function JsonTree() {
           style={{ width: "100%", height: "200px", fontFamily: "monospace" }}
         />
         <button onClick={() => setExpandAll(true)}>Expand All</button>
-      </div>
-      <div className="json-tree-container">
-        {jsonData && <Node data={jsonData} depth={0} expandAll={expandAll} />}
       </div>
     </div>
   );
