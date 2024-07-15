@@ -45,3 +45,12 @@
 .value {
   color: #e74c3c; /* Red */
 }
+
+.input-container {
+  width: 50%; /* Adjust as needed */
+  margin-right: 20px;
+}
+
+.json-tree-container {
+  width: 50%;
+}
